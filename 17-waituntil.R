@@ -93,15 +93,7 @@ customer <-
   timeout(function() {rexp(1, 1/10)}) %>%
   release("counter")
 
-# Infinite queue doesn't seem to work
-# door_schedule <- schedule(c(30, 30), c(Inf, 0), period = 30)
-# Check this up, too
-# The `timetable` argument of `schedule` must be a vector of increasing size,
-# length >=2.
-# So either use maxTime for the second element, or pre-calculate the first
-# element and add an arbitrarily large value to it (Inf isn't permitted) for the
-# second element.
-door_schedule <- schedule(c(rexp(1, 1/10), maxTime), c(999, 0))
+door_schedule <- schedule(c(0, rexp(1, 1/10)), c(0, Inf))
 
 ## Model/Experiment ------------------------------
 

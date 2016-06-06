@@ -94,7 +94,7 @@ customer <-
   timeout(function() {rexp(1, 1/10)}) %>%
   release("counter")
 
-# Infinite queue doesn't seem to work
+# Infinite queue doesn't seem to work in this particular case
 # door_schedule <- schedule(c(30, 30), c(Inf, 0), period = 30)
 door_schedule <- schedule(c(30, 30), c(999, 0), period = 30)
 
